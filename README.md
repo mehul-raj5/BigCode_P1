@@ -999,7 +999,9 @@ Rather than using noisy, incomplete proxy data, we built a **mathematically rigo
 
 2. **CPTED-correlated ground truth**: The `incident_density` target is not randomly assigned. It is computed from the physical features using an explicit mathematical formula:
 
-$$\text{base\_risk} = \frac{\exp(\alpha \cdot \text{safe\_zone\_dist}_{norm} + \beta \cdot \text{shadow\_index})}{\left(\log(1 + \text{cctv}) + 0.5\right) \cdot \left(\log(1 + \text{streetlight}) + 0.5\right)}$$
+$$\text{base-risk} = \frac{\exp(\alpha \cdot \text{safe-zone-dist}_{norm} + \beta \cdot \text{shadow-index})}{\left(\log(1 + \text{cctv}) + 0.5\right) \cdot \left(\log(1 + \text{streetlight}) + 0.5\right)}$$
+
+Where $\alpha = 1.8$, $\beta = 2.0$. Risk **increases exponentially** with distance to safe zones and shadow coverage, and **decreases logarithmically** with surveillance infrastructure. Gaussian noise ($\sigma = 15\%$ of base risk) is then added to prevent the model from learning a trivial deterministic mapping.
 
 Where $\alpha = 1.8$, $\beta = 2.0$. Risk **increases exponentially** with distance to safe zones and shadow coverage, and **decreases logarithmically** with surveillance infrastructure. Gaussian noise ($\sigma = 15\%$ of base risk) is then added to prevent the model from learning a trivial deterministic mapping.
 
